@@ -53,7 +53,7 @@ session_start(); // Start session to track login status
     <section id="user-profile">
         <div class="profile-container">
             <div class="profile-pic">
-                <img src="Learning_Quest_Media/a2.png" alt="User Profile Picture">
+                <img src="a2.png" alt="User Profile Picture">
             </div>
             <div class="profile-info">
                 <h2>Welcome back, Emma!</h2>

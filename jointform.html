@@ -1,0 +1,181 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Student Registration Form</title>
+    <style>
+        /* Global styles */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Arial', sans-serif;
+        }
+
+        body {
+            background-color: #f8f9fa;
+            color: #333;
+        }
+
+        .container {
+            width: 80%;
+            margin: 0 auto;
+            text-align: center;
+        }
+
+        header {
+            background-color: #ff9f00;
+            color: #fff;
+            padding: 20px 0;
+            border-radius: 10px;
+        }
+
+        h1 {
+            font-size: 2.5rem;
+        }
+
+        .form-container {
+            background-color: #fff;
+            padding: 40px;
+            border-radius: 10px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+            margin-top: 30px;
+        }
+
+        h2 {
+            font-size: 1.8rem;
+            margin-bottom: 20px;
+        }
+
+        .input-group {
+            margin: 15px 0;
+            text-align: left;
+        }
+
+        input {
+            width: 100%;
+            padding: 10px;
+            margin-top: 5px;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            font-size: 1rem;
+        }
+
+        input:focus {
+            border-color: #ff9f00;
+            outline: none;
+            transition: all 0.3s ease;
+        }
+
+        button {
+            padding: 12px 20px;
+            background-color: #ff9f00;
+            border: none;
+            color: #fff;
+            font-size: 1.2rem;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+
+        button:hover {
+            background-color: #e68900;
+        }
+
+        .footer {
+            margin-top: 50px;
+            font-size: 0.9rem;
+        }
+
+        .character-images {
+            margin-top: 30px;
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+            animation: moveImages 2s ease-in-out infinite alternate;
+        }
+
+        .character {
+            width: 120px;
+            height: auto;
+            transition: transform 0.3s;
+        }
+
+        .character:hover {
+            transform: scale(1.1);
+        }
+
+        @keyframes moveImages {
+            0% {
+                transform: translateY(0);
+            }
+            100% {
+                transform: translateY(-10px);
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <div class="container">
+        <header>
+            <h1>Welcome to the Fun Student Registration</h1>
+        </header>
+        
+        <div class="form-container">
+            <h2>Register Your Details</h2>
+            <form id="studentForm">
+                <div class="input-group">
+                    <label for="name">Student Name:</label>
+                    <input type="text" id="name" name="name" required>
+                </div>
+                <div class="input-group">
+                    <label for="rollNumber">Roll Number:</label>
+                    <input type="number" id="rollNumber" name="rollNumber" required>
+                </div>
+                <div class="input-group">
+                    <label for="class">Class:</label>
+                    <input type="text" id="class" name="class" required>
+                </div>
+                <div class="input-group">
+                    <label for="classCode">Class Code:</label>
+                    <input type="text" id="classCode" name="classCode" required>
+                </div>
+                <button type="submit" id="submitBtn">Submit</button>
+            </form>
+        </div>
+
+        <div class="footer">
+            <p>Powered by Kids Fun! - Designed with love & fun!</p>
+        </div>
+
+        <div class="character-images">
+            <img src="shinchan.png" alt="Shinchan" class="character">
+            <img src="doraemon.png" alt="Doraemon" class="character">
+        </div>
+    </div>
+
+    <script>
+        // Handle form submission and alert user with the entered details
+        document.getElementById("studentForm").addEventListener("submit", function(e) {
+            e.preventDefault();  // Prevent the default form submission
+
+            const name = document.getElementById("name").value;
+            const rollNumber = document.getElementById("rollNumber").value;
+            const studentClass = document.getElementById("class").value;
+            const classCode = document.getElementById("classCode").value;
+
+            if (name && rollNumber && studentClass && classCode) {
+                alert(`Student Registered Successfully!\n\nName: ${name}\nRoll Number: ${rollNumber}\nClass: ${studentClass}\nClass Code: ${classCode}`);
+            } else {
+                alert("Please fill all the details.");
+            }
+
+            // Optionally, clear the form after submission
+            document.getElementById("studentForm").reset();
+        });
+    </script>
+    
+</body>
+</html>

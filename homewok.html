@@ -1,0 +1,203 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Parent-Teacher Chat</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background: linear-gradient(45deg, #ff6f61, #6a1b9a, #3f51b5, #009688, #8bc34a);
+      color: white;
+      margin: 0;
+      padding: 0;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+    }
+    .chat-container {
+      width: 80%;
+      max-width: 1000px;
+      padding: 20px;
+      background-color: rgba(0, 0, 0, 0.5);
+      border-radius: 10px;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+    }
+    h1 {
+      text-align: center;
+      color: #fff;
+      font-size: 2em;
+    }
+    .tabs {
+      display: flex;
+      justify-content: space-around;
+      margin-bottom: 20px;
+    }
+    .tab-button {
+      background: transparent;
+      border: 2px solid white;
+      color: white;
+      padding: 10px 20px;
+      border-radius: 5px;
+      cursor: pointer;
+      transition: background 0.3s;
+    }
+    .tab-button:hover {
+      background: white;
+      color: black;
+    }
+    .chat-box {
+      margin-top: 20px;
+      display: none;
+    }
+    .chat-box.active {
+      display: block;
+    }
+    .message-area {
+      background: #333;
+      padding: 10px;
+      height: 300px;
+      overflow-y: scroll;
+      border-radius: 5px;
+    }
+    .message {
+      padding: 8px;
+      margin: 10px 0;
+      background-color: #444;
+      border-radius: 5px;
+    }
+    .teacher {
+      background-color: #ffcc00;
+    }
+    .parent {
+      background-color: #4caf50;
+    }
+    .input-area {
+      display: flex;
+      margin-top: 10px;
+    }
+    .input-area input {
+      flex: 1;
+      padding: 10px;
+      border: none;
+      border-radius: 5px;
+      margin-right: 10px;
+    }
+    .input-area button {
+      padding: 10px;
+      border: none;
+      background-color: #00bcd4;
+      color: white;
+      border-radius: 5px;
+      cursor: pointer;
+      transition: background 0.3s;
+    }
+    .input-area button:hover {
+      background-color: #0097a7;
+    }
+    .questions {
+      margin-top: 20px;
+      background-color: #555;
+      padding: 20px;
+      border-radius: 8px;
+    }
+    .question {
+      padding: 10px;
+      margin: 10px 0;
+      background-color: #444;
+      border-radius: 5px;
+      transition: background 0.3s;
+    }
+    .question:hover {
+      background-color: #ff9800;
+    }
+    .answer {
+      display: none;
+      padding-top: 10px;
+      font-size: 0.9em;
+      color: #f1f1f1;
+    }
+    .question.active .answer {
+      display: block;
+    }
+  </style>
+</head>
+<body>
+
+  <div class="chat-container">
+    <h1>Parent-Teacher Chat</h1>
+    
+    <div class="tabs">
+      <button class="tab-button" onclick="showChat('group')">Group Chat</button>
+      <button class="tab-button" onclick="showChat('personal')">Personal Chat</button>
+      <button class="tab-button" onclick="showChat('questions')">Questions</button>
+    </div>
+    
+    <div id="group" class="chat-box">
+      <div class="message-area" id="group-messages">
+        <!-- Group messages will appear here -->
+      </div>
+      <div class="input-area">
+        <input type="text" id="group-input" placeholder="Type a message...">
+        <button onclick="sendMessage('group')">Send</button>
+      </div>
+    </div>
+    
+    <div id="personal" class="chat-box">
+      <div class="message-area" id="personal-messages">
+        <!-- Personal messages will appear here -->
+      </div>
+      <div class="input-area">
+        <input type="text" id="personal-input" placeholder="Type a message...">
+        <button onclick="sendMessage('personal')">Send</button>
+      </div>
+    </div>
+    
+    <div id="questions" class="chat-box">
+      <div class="questions">
+        <div class="question" onclick="toggleAnswer(this)">
+          <strong>Q1:</strong> How is my child progressing in class?
+          <div class="answer">Your child is doing well, but there are areas to improve in logical thinking.</div>
+        </div>
+        <div class="question" onclick="toggleAnswer(this)">
+          <strong>Q2:</strong> How can I improve my child's skills?
+          <div class="answer">Encourage more problem-solving activities and discussions.</div>
+        </div>
+        <div class="question" onclick="toggleAnswer(this)">
+          <strong>Q3:</strong> How can I enhance my child's logical ability?
+          <div class="answer">Engage in activities like puzzles, games, and brain teasers.</div>
+        </div>
+      </div>
+    </div>
+    
+  </div>
+
+  <script>
+    function showChat(chatType) {
+      const chats = document.querySelectorAll('.chat-box');
+      chats.forEach(chat => chat.classList.remove('active'));
+      document.getElementById(chatType).classList.add('active');
+    }
+
+    function sendMessage(chatType) {
+      const inputField = document.getElementById(`${chatType}-input`);
+      const messageArea = document.getElementById(`${chatType}-messages`);
+      const messageText = inputField.value.trim();
+      if (messageText !== '') {
+        const messageDiv = document.createElement('div');
+        messageDiv.classList.add('message', chatType === 'group' ? 'parent' : 'teacher');
+        messageDiv.textContent = messageText;
+        messageArea.appendChild(messageDiv);
+        inputField.value = '';
+        messageArea.scrollTop = messageArea.scrollHeight;
+      }
+    }
+
+    function toggleAnswer(questionElement) {
+      questionElement.classList.toggle('active');
+    }
+  </script>
+
+</body>
+</html>

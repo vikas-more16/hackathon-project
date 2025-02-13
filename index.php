@@ -65,19 +65,19 @@ session_start(); // Start session
         <div class="reasons">
            <a href="interactive-games.php">
             <div class="reason-card">
-                <img src="Learning_Quest_Media/interactive_game_img.png" alt="Interactive Games">
+                <img src="interactive_game_img.png" alt="Interactive Games">
                 <h3>Interactive Games</h3>
             </div>
            </a>
            <a href="track-progress.php">
             <div class="reason-card">
-                <img src="Learning_Quest_Media/progress_img.png" alt="Progress Tracking">
+                <img src="progress_img.png" alt="Progress Tracking">
                 <h3>Your Progress</h3>
             </div>
            </a>
             <a href="rewards-badges.php">
                 <div class="reason-card">
-                    <img src="Learning_Quest_Media/b9.png" alt="Rewards & Badges">
+                    <img src="b9.png" alt="Rewards & Badges">
                     <h3>Rewards & Badges</h3>
                 </div>
             </a>
@@ -88,19 +88,19 @@ session_start(); // Start session
         <div class="quest-cards">
             <a href="math-marvels-quest.php">
                 <div class="quest-card">
-                    <img src="Learning_Quest_Media/math_game_img.png" alt="Quest Image">
+                    <img src="math_game_img.png" alt="Quest Image">
                     <h3>Math Marvels</h3>
                 </div>
             </a>
             <a href="grammar-galaxy-quest.php">
                 <div class="quest-card">
-                    <img src="Learning_Quest_Media/language_game_img.png" alt="Quest Image">
+                    <img src="language_game_img.png" alt="Quest Image">
                     <h3>Grammar Galaxy</h3>
                 </div>
             </a>
            <a href="science-island-quest.php">
             <div class="quest-card">
-                <img src="Learning_Quest_Media/scienceisland_game_img.png" alt="Quest Image">
+                <img src="scienceisland_game_img.png" alt="Quest Image">
                 <h3>Science Island</h3>
             </div>
            </a>
@@ -108,19 +108,19 @@ session_start(); // Start session
         <div class="quest-cards">
             <a href="math-marvels-quest.php">
                 <div class="quest-card">
-                    <img src="Learning_Quest_Media/math_game_img.png" alt="Quest Image">
+                    <img src="math_game_img.png" alt="Quest Image">
                     <h3>Math Marvels</h3>
                 </div>
             </a>
             <a href="grammar-galaxy-quest.php">
                 <div class="quest-card">
-                    <img src="Learning_Quest_Media/language_game_img.png" alt="Quest Image">
+                    <img src="language_game_img.png" alt="Quest Image">
                     <h3>Grammar Galaxy</h3>
                 </div>
             </a>
            <a href="science-island-quest.php">
             <div class="quest-card">
-                <img src="Learning_Quest_Media/scienceisland_game_img.png" alt="Quest Image">
+                <img src="scienceisland_game_img.png" alt="Quest Image">
                 <h3>Science Island</h3>
             </div>
            </a>
