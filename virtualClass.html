@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Student Dashboard</title>
+    <link rel="stylesheet" href="styles.css">
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f5f5f5;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+        }
+        .dashboard {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 20px;
+            width: 80%;
+            max-width: 900px;
+        }
+        .card {
+            background: white;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+        .welcome { background-color: #dcd6f7; }
+        .homework { background-color: #c3f3c0; }
+        .progress { background-color: #f8e5a1; }
+        .play-learn { background-color: #e0c2f2; }
+        .leaderboard { background-color: #f5d1bb; }
+        .chat { background-color: #aec6cf; }
+        .progress-bar {
+            width: 100%;
+            background: #ddd;
+            border-radius: 5px;
+            overflow: hidden;
+        }
+        .progress-fill {
+            height: 10px;
+            background: #4caf50;
+        }
+        button {
+            background: #4caf50;
+            color: white;
+            border: none;
+            padding: 10px;
+            cursor: pointer;
+            border-radius: 5px;
+        }
+        button:hover {
+            background: #45a049;
+        }
+    </style>
+</head>
+<body>
+    <div class="dashboard">
+        <div class="welcome card">
+            <h2>Welcome, Student! 🎉</h2>
+            <p>Let's make learning fun today 🚀</p>
+        </div>
+        <div class="homework card">
+            <h3>Today's Homework 📖</h3>
+            <p>Watch the solar system video and play the quiz.</p>
+            <button class="start-btn">Start Now</button>
+        </div>
+        <div class="progress card">
+            <h3>Your Progress 📊</h3>
+            <div class="progress-bar">
+                <div class="progress-fill" style="width: 75%;"></div>
+            </div>
+            <p>You're doing great! Keep it up! 🚀</p>
+        </div>
+        <div class="play-learn card">
+            <h3>Play & Learn 🎮</h3>
+            <button class="game-btn" onclick="window.location.href='index.php'">Start Game</button>
+        </div>
+        <div class="leaderboard card">
+            <h3>Leaderboard 🏆</h3>
+            <p>You're in the top 10!</p>
+        </div>
+        <div class="chat card">
+            <h3>Parent-Teacher Chat 💬</h3>
+            <button class="chat-btn">Open Chat</button>
+        </div>
+    </div>
+    <script src="script.js"></script>
+</body>
+</html>

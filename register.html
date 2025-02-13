@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login/Register</title>
+    <link rel="stylesheet" href="register.css">
+</head>
+<body>
+    <div class="left">
+        <div class="container">
+            <form action="register.php" method="post">  
+                <div id="registerForm">
+                    <h2>Create a new account</h2>
+                    <select required id="userType" name="user_type">
+                        <option selected disabled value="">Select account type ...</option>
+                        <option value="student">Student</option>
+                        <option value="organization">Organization</option>
+                    </select>
+                    <input type="text" placeholder="Full Name" required name="full_name">
+                    <input type="email" placeholder="Email" required name="email">
+                    <input type="text" placeholder="Username" required name="user_name">
+                    <input type="password" placeholder="Password" required name="password">
+                    <button type="submit">Register</button>
+                </div>
+            </form>
+        </div>
+    </div>
+    <div class="right">
+        <h1>Educational Platform</h1>
+        <p>A comprehensive platform for organizations and students to manage virtual classrooms, share educational content, and track progress.</p>
+    </div>
+   <script src="login.js"></script>
+</body>
+</html>

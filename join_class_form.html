@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Join Class</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+            background-color: #f7f9fc;
+        }
+        .container {
+            width: 300px;
+            margin: auto;
+            padding: 20px;
+            background: white;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+        }
+        input {
+            width: 90%;
+            padding: 10px;
+            margin: 10px 0;
+            border-radius: 5px;
+            border: 1px solid #ccc;
+        }
+        button {
+            background-color: #4CAF50;
+            color: white;
+            padding: 10px 15px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 16px;
+        }
+        button:hover {
+            background-color: #45a049;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="container">
+        <h2>Join Class</h2>
+        <form action="join_class_form.php" method="POST">
+            <input type="text" name="student_name" placeholder="Enter Your Name" required><br>
+            <input type="number" name="roll_no" placeholder="Enter Roll No." required><br>
+            <input type="text" name="class" placeholder="Enter Your Class" required><br>
+            <input type="text" name="class_code" placeholder="Enter Class Code" required><br>
+            <button type="submit">Join Class</button>
+        </form>
+    </div>
+
+</body>
+</html>
