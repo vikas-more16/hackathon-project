@@ -86,14 +86,11 @@ session_start(); // Start session
         <div class="dashboard-section">
             <div class="card">
                 <h3>Classrooms</h3>
-                <button class="button" onclick="openClassForm()">+ Create Classroom</button>
+                <button class="button" onclick="window.location.href='create_classroom.html'">+ Create Classroom</button>
             </div>
             <div class="card">
                 <h3>Content Management</h3>
-                <button class="button" onclick="openContentForm()">+ Add Content</button>
-                <div id="contentSection" class="content-container">
-                    <!-- Added content will appear here -->
-                </div>
+                <button class="button" onclick="window.location.href='studenthomework.html'">+ Add Content</button>
             </div>
         </div>
 

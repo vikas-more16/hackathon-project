@@ -1,0 +1,121 @@
+/* General Reset */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Arial', sans-serif;
+    background-color: #f4f9ff;
+    color: #333;
+}
+
+a {
+    text-decoration: none;
+    color: #fff;
+}
+
+/* Header */
+header {
+    background-color: #ffca28;
+    padding: 20px 50px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+header .logo img {
+    width: 150px;
+}
+
+header nav ul {
+    list-style-type: none;
+    display: flex;
+}
+
+header nav ul li {
+    margin-left: 20px;
+}
+
+header nav ul li a {
+    font-size: 18px;
+    color: #333;
+    font-weight: bold;
+    transition: color 0.3s ease;
+}
+
+header nav ul li a:hover {
+    color: #ff5722;
+}
+
+/* Leaderboard Page Styles */
+#leaderboard-page {
+    padding: 50px 30px;
+}
+
+.leaderboard-header {
+    text-align: center;
+    margin-bottom: 40px;
+}
+
+.leaderboard-header h1 {
+    font-size: 3rem;
+    margin-bottom: 10px;
+}
+
+.leaderboard-header p {
+    font-size: 1.2rem;
+    color: #555;
+}
+
+.leaderboard-table {
+    width: 100%;
+    margin-top: 30px;
+    border-collapse: collapse;
+}
+
+.leaderboard-header-row {
+    background-color: #ff5722;
+    color: #fff;
+    font-weight: bold;
+}
+
+.leaderboard-header-item {
+    padding: 12px 20px;
+    text-align: center;
+    font-size: 1.2rem;
+}
+
+.leaderboard-row {
+    background-color: #ffffff;
+    text-align: center;
+    border-bottom: 1px solid #ddd;
+}
+
+.leaderboard-item {
+    padding: 12px 20px;
+    font-size: 1.1rem;
+}
+
+.leaderboard-row:hover {
+    background-color: #fce4b1;
+}
+
+.user-rank {
+    background-color: #ffca28;
+    font-weight: bold;
+    color: #333;
+}
+
+/* Footer */
+footer {
+    background-color: #ffca28;
+    padding: 20px;
+    text-align: center;
+}
+
+footer .footer-content p {
+    font-size: 1rem;
+    color: #333;
+}

@@ -27,6 +27,7 @@
             padding: 20px;
             border-radius: 10px;
             box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            text-decoration: none;
         }
         .welcome { background-color: #dcd6f7; }
         .homework { background-color: #c3f3c0; }
@@ -66,12 +67,12 @@
         <div class="homework card">
             <h3>Today's Homework 📖</h3>
             <p>Watch the solar system video and play the quiz.</p>
-            <button class="start-btn">Start Now</button>
+            <button class="start-btn"onclick="window.location.href='todayshomework.html'">Start Now</button>
         </div>
         <div class="progress card">
             <h3>Your Progress 📊</h3>
             <div class="progress-bar">
-                <div class="progress-fill" style="width: 75%;"></div>
+                <a href="profile.php"><div class="progress-fill" style="width: 75%;"></div></a>
             </div>
             <p>You're doing great! Keep it up! 🚀</p>
         </div>
@@ -80,12 +81,12 @@
             <button class="game-btn" onclick="window.location.href='index.php'">Start Game</button>
         </div>
         <div class="leaderboard card">
-            <h3>Leaderboard 🏆</h3>
+            <h3>Leaderboard <a href="leaderboard.php">🏆</a></h3>
             <p>You're in the top 10!</p>
         </div>
         <div class="chat card">
             <h3>Parent-Teacher Chat 💬</h3>
-            <button class="chat-btn">Open Chat</button>
+            <button class="chat-btn" onclick="window.location.href = 'parent_teacher.html'; " >Open Chat</button>
         </div>
     </div>
     <script src="script.js"></script>

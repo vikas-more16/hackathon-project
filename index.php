@@ -129,7 +129,7 @@ session_start(); // Start session
 
     <section id="VirtualClass">
         <div>
-           <form action="virtualClass.html">
+           <form action="jointform.html">
             <h2>Join a Virtual class</h2>
             <button>Join</button>
            </form>

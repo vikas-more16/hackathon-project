@@ -18,16 +18,17 @@
     }
     .chat-container {
       width: 80%;
-      max-width: 1000px;
+      max-width: 900px;
       padding: 20px;
-      background-color: rgba(0, 0, 0, 0.5);
+      background-color: rgba(0, 0, 0, 0.7);
       border-radius: 10px;
       box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
     }
     h1 {
       text-align: center;
       color: #fff;
-      font-size: 2em;
+      font-size: 2.5em;
+      margin-bottom: 20px;
     }
     .tabs {
       display: flex;
@@ -38,31 +39,31 @@
       background: transparent;
       border: 2px solid white;
       color: white;
-      padding: 10px 20px;
+      padding: 12px 24px;
       border-radius: 5px;
       cursor: pointer;
-      transition: background 0.3s;
+      transition: background 0.3s ease, color 0.3s ease;
     }
     .tab-button:hover {
       background: white;
       color: black;
     }
     .chat-box {
-      margin-top: 20px;
       display: none;
+      padding: 20px;
     }
     .chat-box.active {
       display: block;
     }
     .message-area {
       background: #333;
-      padding: 10px;
+      padding: 15px;
       height: 300px;
       overflow-y: scroll;
       border-radius: 5px;
     }
     .message {
-      padding: 8px;
+      padding: 10px;
       margin: 10px 0;
       background-color: #444;
       border-radius: 5px;
@@ -72,6 +73,10 @@
     }
     .parent {
       background-color: #4caf50;
+    }
+    .sender-info {
+      font-weight: bold;
+      color: #f1f1f1;
     }
     .input-area {
       display: flex;
@@ -83,9 +88,10 @@
       border: none;
       border-radius: 5px;
       margin-right: 10px;
+      font-size: 1em;
     }
     .input-area button {
-      padding: 10px;
+      padding: 12px;
       border: none;
       background-color: #00bcd4;
       color: white;
@@ -107,7 +113,8 @@
       margin: 10px 0;
       background-color: #444;
       border-radius: 5px;
-      transition: background 0.3s;
+      cursor: pointer;
+      transition: background 0.3s ease;
     }
     .question:hover {
       background-color: #ff9800;
@@ -134,7 +141,16 @@
       <button class="tab-button" onclick="showChat('questions')">Questions</button>
     </div>
     
-    <div id="group" class="chat-box">
+    <div id="group" class="chat-box active">
+      <div class="person-selection">
+        <label for="select-person-group">Select a person to chat:</label>
+        <select id="select-person-group" onchange="changeGroupChatPerson()">
+          <option value="teacher1">Teacher 1</option>
+          <option value="parent1">Parent 1</option>
+          <option value="teacher2">Teacher 2</option>
+          <option value="parent2">Parent 2</option>
+        </select>
+      </div>
       <div class="message-area" id="group-messages">
         <!-- Group messages will appear here -->
       </div>
@@ -145,6 +161,15 @@
     </div>
     
     <div id="personal" class="chat-box">
+      <div class="person-selection">
+        <label for="select-person">Select a person to chat:</label>
+        <select id="select-person" onchange="changeChatPerson()">
+          <option value="teacher1">Teacher 1</option>
+          <option value="parent1">Parent 1</option>
+          <option value="teacher2">Teacher 2</option>
+          <option value="parent2">Parent 2</option>
+        </select>
+      </div>
       <div class="message-area" id="personal-messages">
         <!-- Personal messages will appear here -->
       </div>
@@ -157,16 +182,24 @@
     <div id="questions" class="chat-box">
       <div class="questions">
         <div class="question" onclick="toggleAnswer(this)">
-          <strong>Q1:</strong> How is my child progressing in class?
-          <div class="answer">Your child is doing well, but there are areas to improve in logical thinking.</div>
+          <strong>Q1:</strong> How can I improve my child's logical thinking ability?
+          <div class="answer">Encourage problem-solving activities, puzzles, and games that require thinking ahead.</div>
         </div>
         <div class="question" onclick="toggleAnswer(this)">
-          <strong>Q2:</strong> How can I improve my child's skills?
-          <div class="answer">Encourage more problem-solving activities and discussions.</div>
+          <strong>Q2:</strong> What activities are good for boosting creativity in children?
+          <div class="answer">Drawing, building models, and role-playing games are excellent ways to boost creativity.</div>
         </div>
         <div class="question" onclick="toggleAnswer(this)">
-          <strong>Q3:</strong> How can I enhance my child's logical ability?
-          <div class="answer">Engage in activities like puzzles, games, and brain teasers.</div>
+          <strong>Q3:</strong> How can I make learning fun for my child?
+          <div class="answer">Incorporate games, interactive videos, and real-world applications into lessons.</div>
+        </div>
+        <div class="question" onclick="toggleAnswer(this)">
+          <strong>Q4:</strong> What are some ways to improve my child's concentration?
+          <div class="answer">Break tasks into smaller parts, create a structured routine, and minimize distractions.</div>
+        </div>
+        <div class="question" onclick="toggleAnswer(this)">
+          <strong>Q5:</strong> How can I support my child in their academic struggles?
+          <div class="answer">Provide emotional support, encourage persistence, and collaborate with teachers for strategies.</div>
         </div>
       </div>
     </div>
@@ -174,20 +207,38 @@
   </div>
 
   <script>
+    let currentPersonGroup = 'teacher1';  // Default to Teacher 1 for group chat
+    let currentPersonPersonal = 'teacher1';  // Default to Teacher 1 for personal chat
+
     function showChat(chatType) {
       const chats = document.querySelectorAll('.chat-box');
       chats.forEach(chat => chat.classList.remove('active'));
       document.getElementById(chatType).classList.add('active');
     }
 
+    function changeGroupChatPerson() {
+      currentPersonGroup = document.getElementById('select-person-group').value;
+      document.getElementById('group-messages').innerHTML = '';  // Clear previous messages
+    }
+
+    function changeChatPerson() {
+      currentPersonPersonal = document.getElementById('select-person').value;
+      document.getElementById('personal-messages').innerHTML = '';  // Clear previous messages
+    }
+
     function sendMessage(chatType) {
       const inputField = document.getElementById(`${chatType}-input`);
-      const messageArea = document.getElementById(`${chatType}-messages`);
+      const messageArea = document.getElementById(`${chatType === 'personal' ? 'personal' : 'group'}-messages`);
       const messageText = inputField.value.trim();
       if (messageText !== '') {
         const messageDiv = document.createElement('div');
+        const senderInfo = document.createElement('div');
+        senderInfo.classList.add('sender-info');
+        senderInfo.textContent = chatType === 'group' ? currentPersonGroup : currentPersonPersonal;
+        
         messageDiv.classList.add('message', chatType === 'group' ? 'parent' : 'teacher');
-        messageDiv.textContent = messageText;
+        messageDiv.innerHTML = `<strong class="sender-info">${chatType === 'group' ? currentPersonGroup : currentPersonPersonal}</strong>: ${messageText}`;
+        
         messageArea.appendChild(messageDiv);
         inputField.value = '';
         messageArea.scrollTop = messageArea.scrollHeight;

@@ -1,0 +1,185 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Homework Assignment</title>
+    <style>
+        /* General Body Styling */
+        body {
+            background-color: #f4f7f6;
+            color: #333;
+            font-family: 'Arial', sans-serif;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+        }
+
+        /* Main Container */
+        .container {
+            background-color: #fff;
+            border-radius: 10px;
+            padding: 30px;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+            text-align: center;
+            width: 80%;
+            max-width: 700px;
+        }
+
+        /* Header Styling */
+        .header {
+            font-size: 2rem;
+            color: #3f51b5;
+            margin-bottom: 20px;
+            text-transform: uppercase;
+        }
+
+        /* Homework Assignment Box */
+        .homework-box {
+            background-color: #f9f9f9;
+            border-radius: 10px;
+            padding: 20px;
+            margin-top: 20px;
+            border: 1px solid #3f51b5;
+        }
+
+        /* Form Inputs */
+        .input-group {
+            margin-bottom: 20px;
+            text-align: left;
+        }
+
+        label {
+            font-size: 1.1rem;
+            color: #555;
+            margin-bottom: 5px;
+            display: block;
+        }
+
+        select, input[type="text"], button {
+            width: 100%;
+            padding: 12px;
+            margin: 8px 0;
+            font-size: 1.1rem;
+            border: 1px solid #3f51b5;
+            border-radius: 5px;
+            background-color: #f1f1f1;
+            color: #333;
+        }
+
+        button {
+            background-color: #3f51b5;
+            color: white;
+            cursor: pointer;
+            font-size: 1.2rem;
+            transition: background-color 0.3s ease;
+        }
+
+        button:hover {
+            background-color: #303f9f;
+        }
+
+        /* Assigned Homework Display */
+        .assigned-homework {
+            background-color: #eef2f7;
+            padding: 15px;
+            border-radius: 10px;
+            margin-top: 20px;
+            border: 1px solid #3f51b5;
+            text-align: left;
+        }
+
+        .assigned-homework h4 {
+            color: #3f51b5;
+        }
+
+        .assigned-homework p {
+            font-size: 1.1rem;
+            color: #333;
+        }
+
+    </style>
+</head>
+<body>
+
+    <div class="container">
+        <div class="header">
+            Teacher's Homework Assignment Portal
+        </div>
+
+        <div class="homework-box">
+            <h3>Assign Homework</h3>
+
+            <div class="input-group">
+                <label for="class">Choose Class:</label>
+                <select id="class">
+                    <option value="Class 1">Class 1</option>
+                    <option value="Class 2">Class 2</option>
+                    <option value="Class 3">Class 3</option>
+                    <option value="Class 4">Class 4</option>
+                    <option value="Class 5">Class 5</option>
+                    <option value="Class 6">Class 6</option>
+                    <option value="Class 7">Class 7</option>
+                    <option value="Class 8">Class 8</option>
+                    <option value="Class 9">Class 9</option>
+                    <option value="Class 10">Class 10</option>
+                </select>
+            </div>
+
+            <div class="input-group">
+                <label for="subject">Choose Subject:</label>
+                <select id="subject">
+                    <option value="Math">Math</option>
+                    <option value="English">English</option>
+                    <option value="Science">Science</option>
+                    <option value="History">History</option>
+                    <option value="Geography">Geography</option>
+                    <option value="Logical Puzzles">Logical Puzzles</option>
+                </select>
+            </div>
+
+            <div class="input-group">
+                <label for="homework">Enter Homework Task:</label>
+                <input type="text" id="homework" placeholder="Write the homework task here...">
+            </div>
+
+            <button onclick="showAlert()">Assign Homework</button>
+        </div>
+
+    </div>
+    <div id="assignedHomework" class="assigned-homework">
+        <!-- Assigned homework will appear here --> 
+    </div>
+    <script>
+        function showAlert() {
+            alert("Homework is assigned.");
+            window.location.href="organization_home.php";
+        }
+        </script>
+    <!-- <script>
+        // Function to assign homework and display
+        function assignHomework() {
+            const classSelected = document.getElementById("class").value;
+            const subject = document.getElementById("subject").value;
+            const homework = document.getElementById("homework").value;
+
+            if (homework.trim() !== "") {
+                // Create homework display
+                const assignedHomeworkContainer = document.getElementById("assignedHomework");
+                const homeworkDisplay = `
+                    <h4>Homework Assigned</h4>
+                    <p><strong>Class:</strong> ${classSelected}</p>
+                    <p><strong>Subject:</strong> ${subject}</p>
+                    <p><strong>Homework:</strong> ${homework}</p>
+                `;
+                assignedHomeworkContainer.innerHTML = homeworkDisplay;
+            } else {
+                alert("Please enter the homework task.");
+            }
+        }
+    </script> -->
+
+</body>
+</html>

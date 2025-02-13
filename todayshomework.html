@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Today's Homework</title>
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            background: linear-gradient(45deg, #ff66cc, #66ccff);
+            color: white;
+            margin: 0;
+            padding: 0;
+            height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            flex-direction: column;
+        }
+        h1 {
+            font-family: 'Cursive', sans-serif;
+            font-size: 3rem;
+            color: #FFCC00;
+            text-shadow: 3px 3px 8px rgba(255, 255, 255, 0.5);
+            animation: rainbow 3s infinite;
+        }
+        @keyframes rainbow {
+            0% { color: red; }
+            14% { color: orange; }
+            28% { color: yellow; }
+            42% { color: green; }
+            57% { color: blue; }
+            71% { color: indigo; }
+            85% { color: violet; }
+            100% { color: red; }
+        }
+        .homework-container {
+            display: grid;
+            grid-template-columns: 1fr 1fr 1fr 1fr;
+            gap: 15px;
+            padding: 20px;
+            border-radius: 15px;
+            background: rgba(255, 255, 255, 0.3);
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+        }
+        .homework-card {
+            background: rgba(0, 0, 0, 0.6);
+            padding: 15px;
+            border-radius: 10px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.4);
+        }
+        .homework-card h2 {
+            font-family: 'Comic Sans MS', cursive;
+            font-size: 1.5rem;
+            color: #FFCC00;
+        }
+        .homework-card p {
+            font-size: 1rem;
+            margin: 10px 0;
+        }
+        .homework-card span {
+            font-weight: bold;
+            color: #FF4500;
+        }
+        .footer {
+            margin-top: 20px;
+            font-size: 1rem;
+            color: #FFCC00;
+            animation: footerAnimation 2s infinite alternate;
+        }
+        @keyframes footerAnimation {
+            0% { color: yellow; }
+            100% { color: lightgreen; }
+        }
+    </style>
+</head>
+<body>
+
+    <h1>Today's Homework</h1>
+
+    <div class="homework-container">
+        <!-- Class 1 Homework -->
+        <div class="homework-card">
+            <h2>Class 1</h2>
+            <p><span>Subject:</span> Maths</p>
+            <p><span>Teacher:</span> Mrs. Smith</p>
+            <p><span>Assignment:</span> Page 20 - Solve addition problems</p>
+        </div>
+
+        <!-- Class 2 Homework -->
+        <div class="homework-card">
+            <h2>Class 2</h2>
+            <p><span>Subject:</span> English</p>
+            <p><span>Teacher:</span> Mr. John</p>
+            <p><span>Assignment:</span> Write 5 sentences about your favorite animal.</p>
+        </div>
+
+        <!-- Class 3 Homework -->
+        <div class="homework-card">
+            <h2>Class 3</h2>
+            <p><span>Subject:</span> Logical Ability</p>
+            <p><span>Teacher:</span> Mrs. Clark</p>
+            <p><span>Assignment:</span> Solve puzzles on Page 30</p>
+        </div>
+
+        <!-- Class 4 Homework -->
+        <div class="homework-card">
+            <h2>Class 4</h2>
+            <p><span>Subject:</span> Maths</p>
+            <p><span>Teacher:</span> Mr. Turner</p>
+            <p><span>Assignment:</span> Multiplication table (1-12)</p>
+        </div>
+    </div>
+
+    <div class="footer">Have a productive day!</div>
+
+</body>
+</html>

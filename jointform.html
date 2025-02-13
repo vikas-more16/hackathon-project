@@ -125,7 +125,7 @@
         
         <div class="form-container">
             <h2>Register Your Details</h2>
-            <form id="studentForm">
+            <form id="studentForm" action="virtualClass.html">
                 <div class="input-group">
                     <label for="name">Student Name:</label>
                     <input type="text" id="name" name="name" required>
@@ -155,27 +155,5 @@
             <img src="doraemon.png" alt="Doraemon" class="character">
         </div>
     </div>
-
-    <script>
-        // Handle form submission and alert user with the entered details
-        document.getElementById("studentForm").addEventListener("submit", function(e) {
-            e.preventDefault();  // Prevent the default form submission
-
-            const name = document.getElementById("name").value;
-            const rollNumber = document.getElementById("rollNumber").value;
-            const studentClass = document.getElementById("class").value;
-            const classCode = document.getElementById("classCode").value;
-
-            if (name && rollNumber && studentClass && classCode) {
-                alert(`Student Registered Successfully!\n\nName: ${name}\nRoll Number: ${rollNumber}\nClass: ${studentClass}\nClass Code: ${classCode}`);
-            } else {
-                alert("Please fill all the details.");
-            }
-
-            // Optionally, clear the form after submission
-            document.getElementById("studentForm").reset();
-        });
-    </script>
-    
 </body>
 </html>
