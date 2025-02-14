@@ -1,10 +1,196 @@
-* { box-sizing: border-box; margin: 0; padding: 0; font-family: Arial, sans-serif; }
-body { display: flex; height: 100vh; }
-.left { width: 50%; display: flex; justify-content: center; align-items: center; background: #f8f9fa; }
-.right { width: 50%; display: flex; justify-content: center; align-items: center; background: #0d6efd; color: white; flex-direction: column; text-align: center; padding: 20px; }
-.container { background: white; padding: 30px; border-radius: 10px; box-shadow: 0 0 10px rgba(0, 0, 0, 0.1); width: 350px; }
-.tabs { display: flex; justify-content: space-between; margin-bottom: 20px; }
-.tab { width: 50%; padding: 10px; text-align: center; cursor: pointer; border-radius: 5px; font-weight: bold; }
-.active { background: white; box-shadow: inset 0 -2px 5px rgba(0, 0, 0, 0.1); }
-input, select, button,p { width: 100%; padding: 10px; margin-top: 10px; }
-button { background: #0d6efd; color: white; cursor: pointer; border: none; }
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Comic Sans MS', cursive;
+}
+
+body {
+    min-height: 100vh;
+    display: flex;
+    background: linear-gradient(135deg, #fff4e6, #ffd6d6);
+    overflow: hidden;
+}
+
+.left {
+    flex: 1;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 20px;
+    position: relative;
+}
+
+.right {
+    flex: 1;
+    background: linear-gradient(135deg, #ffb8b8, #ffd6a5);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    padding: 40px;
+    position: relative;
+}
+
+.container {
+    background: white;
+    padding: 30px;
+    border-radius: 20px;
+    box-shadow: 0 8px 25px rgba(0,0,0,0.1);
+    width: 100%;
+    max-width: 400px;
+    position: relative;
+    z-index: 2;
+}
+
+/* Animated border effect */
+.container::before {
+    content: '';
+    position: absolute;
+    top: -3px;
+    left: -3px;
+    right: -3px;
+    bottom: -3px;
+    background: linear-gradient(45deg, #ff8787, #ffd6a5, #ff8787, #ffd6a5);
+    border-radius: 22px;
+    z-index: -1;
+    background-size: 400% 400%;
+    animation: borderGlow 3s ease infinite;
+}
+
+@keyframes borderGlow {
+    0% { background-position: 0% 50%; }
+    50% { background-position: 100% 50%; }
+    100% { background-position: 0% 50%; }
+}
+
+h2 {
+    color: #ff6b6b;
+    text-align: center;
+    margin-bottom: 30px;
+    font-size: 28px;
+    animation: wavyText 2s ease-in-out infinite;
+}
+
+@keyframes wavyText {
+    0%, 100% { transform: translateY(0); }
+    50% { transform: translateY(-5px); }
+}
+
+select, input {
+    width: 100%;
+    padding: 12px 20px;
+    margin: 10px 0;
+    border: 2px solid #ffd6d6;
+    border-radius: 15px;
+    font-size: 16px;
+    transition: all 0.3s ease;
+    background: white;
+}
+
+select:focus, input:focus {
+    outline: none;
+    border-color: #ff8787;
+    transform: scale(1.02);
+    box-shadow: 0 0 15px rgba(255,135,135,0.2);
+}
+
+button {
+    width: 100%;
+    padding: 12px;
+    background: #ff8787;
+    color: white;
+    border: none;
+    border-radius: 15px;
+    font-size: 18px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    margin-top: 20px;
+    position: relative;
+    overflow: hidden;
+}
+
+button::after {
+    content: '🚀';
+    position: absolute;
+    right: -30px;
+    top: 50%;
+    transform: translateY(-50%);
+    transition: all 0.3s ease;
+}
+
+button:hover::after {
+    right: 20px;
+}
+
+button:hover {
+    background: #ff6b6b;
+    transform: scale(1.02);
+    padding-right: 45px;
+}
+
+/* Floating elements */
+.floating-element {
+    position: absolute;
+    z-index: 1;
+    animation: float 6s infinite ease-in-out;
+    font-size: 2rem;
+}
+
+@keyframes float {
+    0%, 100% { transform: translate(0, 0) rotate(0deg); }
+    50% { transform: translate(15px, -15px) rotate(10deg); }
+}
+
+/* Position floating elements */
+.element1 { top: 15%; left: 15%; animation-delay: 0s; }
+.element2 { top: 25%; right: 15%; animation-delay: -1s; }
+.element3 { bottom: 20%; left: 20%; animation-delay: -2s; }
+.element4 { bottom: 30%; right: 20%; animation-delay: -3s; }
+
+.right h1 {
+    color: white;
+    font-size: 40px;
+    margin-bottom: 20px;
+    text-shadow: 2px 2px 4px rgba(0,0,0,0.1);
+    animation: bounce 2s infinite ease-in-out;
+}
+
+@keyframes bounce {
+    0%, 100% { transform: translateY(0); }
+    50% { transform: translateY(-10px); }
+}
+
+.right p {
+    color: white;
+    font-size: 20px;
+    line-height: 1.6;
+    text-shadow: 1px 1px 2px rgba(0,0,0,0.1);
+}
+
+p {
+    text-align: center;
+    margin-top: 20px;
+    color: #666;
+}
+
+a {
+    color: #ff8787;
+    text-decoration: none;
+    font-weight: bold;
+    transition: all 0.3s ease;
+}
+
+a:hover {
+    color: #ff6b6b;
+    text-decoration: underline;
+}
+
+/* Rainbow effect for login button */
+@keyframes rainbow {
+    0% { filter: hue-rotate(0deg); }
+    100% { filter: hue-rotate(360deg); }
+}
+
+button:active {
+    animation: rainbow 1s linear;
+}

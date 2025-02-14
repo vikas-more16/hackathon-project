@@ -30,7 +30,7 @@ session_start(); // Start session
                 <li><a href="index.php">Home</a></li>
                 <li class="nav-item dropdown">
                     <a class="nav-link dropdown-toggle" href="quests.php" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-                      Quests
+                      games
                     </a>
                     <ul class="dropdown-menu">
                       <li><a class="dropdown-item" href="math-marvels-quest.php">Math Marvels</a></li>

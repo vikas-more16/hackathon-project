@@ -1,3 +1,6 @@
+/* Add at the top of your CSS file */
+@import url('https://fonts.googleapis.com/css2?family=Comic+Neue:wght@700&family=Bubblegum+Sans&family=Patrick+Hand&display=swap');
+
 /* General Reset */
 * {
     margin: 0;
@@ -7,7 +10,7 @@
 
 body {
     font-family: 'Arial', sans-serif;
-    background-color: #f4f9ff;
+    background-color:#fdebdd;
     color: #333;
 }
 
@@ -80,6 +83,138 @@ header nav ul li a:hover {
     background-color: #fdebdd;
 }
 .button { background: #fdebdd; color: white; cursor: pointer; border: none;  padding: 0px 14px;}
+
+
+/* Add at the top of your CSS file */
+@import url('https://fonts.googleapis.com/css2?family=Comic+Neue:wght@700&family=Bubblegum+Sans&family=Patrick+Hand&display=swap');
+
+/* Update the quest header styles */
+.quest-header h1 {
+    font-family: 'Bubblegum Sans', cursive;
+    font-size: 3.5rem;
+    margin-bottom: 15px;
+    color: #ff6b6b;
+    text-shadow: 2px 2px 0px #ffd93d;
+    letter-spacing: 2px;
+    animation: bounce 2s infinite;
+}
+
+@keyframes bounce {
+    0%, 100% {
+        transform: translateY(0);
+    }
+    50% {
+        transform: translateY(-10px);
+    }
+}
+
+.quest-info h2 {
+    font-family: 'Comic Neue', cursive;
+    font-size: 2.2rem;
+    color: #ff7043;
+    margin-bottom: 20px;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+.challenge-item h4 {
+    font-family: 'Patrick Hand', cursive;
+    font-size: 1.8rem;
+    color: #ff5722;
+    margin-bottom: 15px;
+    position: relative;
+    z-index: 1;
+    transform: rotate(-2deg);
+}
+
+.quest-header p {
+    font-family: 'Comic Neue', cursive;
+    font-size: 1.4rem;
+    color: #666;
+    margin-bottom: 30px;
+    line-height: 1.6;
+}
+
+.challenge-item p {
+    font-family: 'Patrick Hand', cursive;
+    font-size: 1.3rem;
+    color: #666;
+    margin-bottom: 20px;
+    position: relative;
+    z-index: 1;
+}
+
+/* Update the start challenge button */
+.start-challenge {
+    font-family: 'Bubblegum Sans', cursive;
+    font-size: 1.2rem;
+    padding: 12px 28px;
+    border-radius: 30px;
+    background: linear-gradient(45deg, #ff5722, #ff9800);
+    color: white;
+    border: none;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    box-shadow: 0 4px 15px rgba(255, 87, 34, 0.3);
+}
+
+.start-challenge:hover {
+    transform: scale(1.05) rotate(-2deg);
+    box-shadow: 0 6px 20px rgba(255, 87, 34, 0.4);
+}
+
+/* Add decorative elements for challenge items */
+.challenge-item::after {
+    content: '✨';
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    font-size: 1.5rem;
+    opacity: 0.5;
+}
+
+.rewards-list li {
+    font-family: 'Comic Neue', cursive;
+    font-size: 1.3rem;
+    color: #666;
+    margin-bottom: 12px;
+    position: relative;
+    padding-left: 25px;
+}
+
+.rewards-list li::before {
+    content: '🌟';
+    position: absolute;
+    left: 0;
+    top: 2px;
+}
+
+header .logo img {
+    width: 150px;
+}
+
+header nav ul {
+    list-style-type: none;
+    display: flex;
+}
+
+header nav ul li {
+    margin-left: 20px;
+}
+
+header nav ul li a {
+    font-size: 18px;
+    color: #333;
+    font-weight: bold;
+    transition: color 0.3s ease;
+}
+
+header nav ul li a:hover {
+    color:#ebb794;
+}
+
 /* Math Marvels Quest Page Styles */
 #math-marvels-quest {
     padding: 50px 30px;
@@ -100,6 +235,12 @@ header nav ul li a:hover {
 .quest-info {
     padding: 0 50px;
 }
+.logo {
+    display: flex;
+    align-items: center;
+    max-height: 50px; /* Adjust navbar height */
+}
+
 
 .quest-info h2 {
     font-size: 2rem;
@@ -109,7 +250,7 @@ header nav ul li a:hover {
 
 .quest-info p {
     font-size: 1.2rem;
-    color: #555;
+    color: #6c6550;
     margin-bottom: 20px;
 }
 
@@ -148,6 +289,97 @@ header nav ul li a:hover {
     margin-bottom: 15px;
 }
 
+/* Keep existing CSS above and add/modify these styles */
+
+.challenge-item {
+    background-color: #fff;
+    border-radius: 10px;
+    padding: 20px;
+    margin-bottom: 15px;
+    position: relative;
+    overflow: hidden;
+    transition: all 0.3s ease;
+}
+
+.challenge-item::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    border: 2px solid transparent;
+    border-radius: 10px;
+    animation: borderAnimation 2s linear infinite;
+}
+
+@keyframes borderAnimation {
+    0% {
+        border-color: #ff5722;
+        transform: scale(1);
+    }
+    33% {
+        border-color: #ff9800;
+        transform: scale(1.02);
+    }
+    66% {
+        border-color: #ffc107;
+        transform: scale(1);
+    }
+    100% {
+        border-color: #ff5722;
+        transform: scale(1);
+    }
+}
+
+.challenge-item:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15);
+}
+
+.challenge-item h4 {
+    font-size: 1.5rem;
+    color: #333;
+    margin-bottom: 15px;
+    position: relative;
+    z-index: 1;
+}
+
+.challenge-item p {
+    font-size: 1.2rem;
+    color: #555;
+    margin-bottom: 20px;
+    position: relative;
+    z-index: 1;
+}
+
+.start-challenge {
+    background-color: #ff5722;
+    color: #fff;
+    border: none;
+    padding: 12px 25px;
+    font-size: 1.1rem;
+    cursor: pointer;
+    border-radius: 25px;
+    transition: all 0.3s ease;
+    position: relative;
+    z-index: 1;
+    overflow: hidden;
+}
+
+.start-challenge:hover {
+    background-color: #ff9800;
+    transform: scale(1.05);
+}
+
+.challenges-list {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 20px;
+    padding: 20px;
+}
+
+
 .challenge-item h4 {
     font-size: 1.5rem;
     color: #333;
@@ -171,7 +403,7 @@ header nav ul li a:hover {
 }
 
 .start-challenge:hover {
-    background-color: #e64a19;
+    background-color: #ff9800;
 }
 
 .rewards-list {
@@ -187,7 +419,7 @@ header nav ul li a:hover {
 
 /* Footer */
 footer {
-    background-color: #ffca28;
+    background-color: #ebb794;
     padding: 20px;
     text-align: center;
 }
@@ -195,4 +427,224 @@ footer {
 footer .footer-content p {
     font-size: 1rem;
     color: #333;
+}
+
+/* Original CSS - Keep all of this */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Arial', sans-serif;
+    background-color:#fdebdd;
+    color: #333;
+}
+
+/* [Keep all your original CSS code exactly as it is...] */
+
+/* Then add the new enhancements AFTER your original CSS */
+
+/* New Enhancements - Add these at the end of your file */
+@import url('https://fonts.googleapis.com/css2?family=Bubblegum+Sans&family=Comic+Neue:wght@700&family=Patrick+Hand&display=swap');
+
+/* Animated Background */
+#math-marvels-quest {
+    background: linear-gradient(45deg, #ffe0e0, #e0f0ff, #e8fff0);
+    background-size: 400% 400%;
+    animation: gradientBG 15s ease infinite;
+}
+
+@keyframes gradientBG {
+    0% { background-position: 0% 50%; }
+    50% { background-position: 100% 50%; }
+    100% { background-position: 0% 50%; }
+}
+
+/* Animated Title */
+.quest-header h1 {
+    font-family: 'Bubblegum Sans', cursive;
+    font-size: 3.5rem;
+    color: #ff6b6b;
+    text-shadow: 3px 3px 0px #ffd93d,
+                 6px 6px 0px rgba(0,0,0,0.1);
+    animation: titleBounce 2s ease-in-out infinite;
+    margin-bottom: 15px;
+    position: relative;
+}
+
+@keyframes titleBounce {
+    0%, 100% { transform: translateY(0); }
+    50% { transform: translateY(-15px); }
+}
+
+/* Floating Characters */
+.quest-header::before {
+    content: '🌟';
+    position: absolute;
+    left: 10%;
+    animation: float 3s ease-in-out infinite;
+}
+
+.quest-header::after {
+    content: '🚀';
+    position: absolute;
+    right: 10%;
+    animation: float 3s ease-in-out infinite reverse;
+}
+
+@keyframes float {
+    0%, 100% { transform: translateY(0) rotate(0deg); }
+    50% { transform: translateY(-20px) rotate(10deg); }
+}
+
+/* Enhanced Challenge Cards */
+.challenge-item {
+    background: white;
+    border-radius: 20px;
+    padding: 25px;
+    margin-bottom: 20px;
+    position: relative;
+    overflow: hidden;
+    transition: all 0.3s ease;
+    border: 4px solid transparent;
+    background-clip: padding-box;
+}
+
+.challenge-item::before {
+    content: '';
+    position: absolute;
+    top: -2px;
+    left: -2px;
+    right: -2px;
+    bottom: -2px;
+    background: linear-gradient(45deg, #ff6b6b, #ffd93d, #6c5ce7, #ff6b6b);
+    background-size: 400% 400%;
+    z-index: -1;
+    animation: borderGlow 3s ease infinite;
+    border-radius: 20px;
+}
+
+@keyframes borderGlow {
+    0% { background-position: 0% 50%; }
+    50% { background-position: 100% 50%; }
+    100% { background-position: 0% 50%; }
+}
+
+/* Challenge Card Headers */
+.challenge-item h4 {
+    font-family: 'Patrick Hand', cursive;
+    font-size: 2rem;
+    color: #ff6b6b;
+    margin-bottom: 15px;
+    transform: rotate(-2deg);
+    transition: transform 0.3s ease;
+}
+
+.challenge-item:hover h4 {
+    transform: rotate(0deg) scale(1.1);
+}
+
+/* Interactive Buttons */
+.start-challenge {
+    font-family: 'Bubblegum Sans', cursive;
+    font-size: 1.2rem;
+    padding: 12px 30px;
+    background: linear-gradient(45deg, #ff6b6b, #ffd93d);
+    color: white;
+    border: none;
+    border-radius: 50px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    position: relative;
+    overflow: hidden;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.2);
+}
+
+.start-challenge:hover {
+    transform: scale(1.1) rotate(-2deg);
+    box-shadow: 0 6px 20px rgba(0,0,0,0.25);
+}
+
+.start-challenge::after {
+    content: '→';
+    position: absolute;
+    right: -20px;
+    opacity: 0;
+    transition: all 0.3s ease;
+}
+
+.start-challenge:hover::after {
+    right: 20px;
+    opacity: 1;
+}
+
+/* Progress Bar Enhancement */
+.progress-bar-container {
+    background: rgba(255,255,255,0.3);
+    border-radius: 50px;
+    padding: 5px;
+    box-shadow: inset 0 0 10px rgba(0,0,0,0.1);
+}
+
+.progress-bar {
+    background: linear-gradient(45deg, #ff6b6b, #ffd93d);
+    border-radius: 50px;
+    transition: width 1s ease;
+    position: relative;
+}
+
+.progress-bar::after {
+    content: '🏃';
+    position: absolute;
+    right: -10px;
+    top: -15px;
+    animation: run 1s linear infinite;
+}
+
+@keyframes run {
+    0%, 100% { transform: translateY(0); }
+    50% { transform: translateY(-5px); }
+}
+
+/* Reward Items Animation */
+.rewards-list li {
+    font-family: 'Comic Neue', cursive;
+    padding: 10px;
+    position: relative;
+    transition: all 0.3s ease;
+}
+
+.rewards-list li::before {
+    content: '🏆';
+    position: absolute;
+    left: -30px;
+    opacity: 0;
+    transition: all 0.3s ease;
+}
+
+.rewards-list li:hover {
+    transform: translateX(20px);
+    color: #ff6b6b;
+}
+
+.rewards-list li:hover::before {
+    opacity: 1;
+    left: -20px;
+}
+
+/* Mobile Responsiveness Enhancement */
+@media (max-width: 768px) {
+    .quest-header h1 {
+        font-size: 2.5rem;
+    }
+    
+    .challenge-item {
+        padding: 15px;
+    }
+    
+    .challenge-item h4 {
+        font-size: 1.5rem;
+    }
 }

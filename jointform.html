@@ -1,159 +1,107 @@
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Student Registration Form</title>
-    <style>
-        /* Global styles */
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-            font-family: 'Arial', sans-serif;
-        }
-
-        body {
-            background-color: #f8f9fa;
-            color: #333;
-        }
-
-        .container {
-            width: 80%;
-            margin: 0 auto;
-            text-align: center;
-        }
-
-        header {
-            background-color: #ff9f00;
-            color: #fff;
-            padding: 20px 0;
-            border-radius: 10px;
-        }
-
-        h1 {
-            font-size: 2.5rem;
-        }
-
-        .form-container {
-            background-color: #fff;
-            padding: 40px;
-            border-radius: 10px;
-            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
-            margin-top: 30px;
-        }
-
-        h2 {
-            font-size: 1.8rem;
-            margin-bottom: 20px;
-        }
-
-        .input-group {
-            margin: 15px 0;
-            text-align: left;
-        }
-
-        input {
-            width: 100%;
-            padding: 10px;
-            margin-top: 5px;
-            border: 1px solid #ddd;
-            border-radius: 5px;
-            font-size: 1rem;
-        }
-
-        input:focus {
-            border-color: #ff9f00;
-            outline: none;
-            transition: all 0.3s ease;
-        }
-
-        button {
-            padding: 12px 20px;
-            background-color: #ff9f00;
-            border: none;
-            color: #fff;
-            font-size: 1.2rem;
-            border-radius: 5px;
-            cursor: pointer;
-            transition: background-color 0.3s;
-        }
-
-        button:hover {
-            background-color: #e68900;
-        }
-
-        .footer {
-            margin-top: 50px;
-            font-size: 0.9rem;
-        }
-
-        .character-images {
-            margin-top: 30px;
-            display: flex;
-            justify-content: center;
-            gap: 20px;
-            animation: moveImages 2s ease-in-out infinite alternate;
-        }
-
-        .character {
-            width: 120px;
-            height: auto;
-            transition: transform 0.3s;
-        }
-
-        .character:hover {
-            transform: scale(1.1);
-        }
-
-        @keyframes moveImages {
-            0% {
-                transform: translateY(0);
-            }
-            100% {
-                transform: translateY(-10px);
-            }
-        }
-    </style>
+    <title>Join Your Class!</title>
+    <link rel="stylesheet" href="jointform.css">
 </head>
 <body>
-
     <div class="container">
-        <header>
-            <h1>Welcome to the Fun Student Registration</h1>
-        </header>
-        
-        <div class="form-container">
-            <h2>Register Your Details</h2>
-            <form id="studentForm" action="virtualClass.html">
-                <div class="input-group">
-                    <label for="name">Student Name:</label>
-                    <input type="text" id="name" name="name" required>
-                </div>
-                <div class="input-group">
-                    <label for="rollNumber">Roll Number:</label>
-                    <input type="number" id="rollNumber" name="rollNumber" required>
-                </div>
-                <div class="input-group">
-                    <label for="class">Class:</label>
-                    <input type="text" id="class" name="class" required>
-                </div>
-                <div class="input-group">
-                    <label for="classCode">Class Code:</label>
-                    <input type="text" id="classCode" name="classCode" required>
-                </div>
-                <button type="submit" id="submitBtn">Submit</button>
-            </form>
-        </div>
+        <!-- Decorative elements -->
+        <div class="bubble"></div>
+        <div class="bubble"></div>
+        <div class="bubble"></div>
+        <div class="star star1"></div>
+        <div class="star star2"></div>
+        <div class="star star3"></div>
+        <div class="loading-rainbow"></div>
 
-        <div class="footer">
-            <p>Powered by Kids Fun! - Designed with love & fun!</p>
-        </div>
-
-        <div class="character-images">
-            <img src="shinchan.png" alt="Shinchan" class="character">
-            <img src="doraemon.png" alt="Doraemon" class="character">
-        </div>
+        <h2>Join Your Class! 🌟</h2>
+        <form action="jointform.php" method="POST" id="joinClassForm">
+            <div class="input-wrapper">
+                <input type="text" name="student_name" placeholder="✏️ Write Your Name" required>
+            </div>
+            <div class="input-wrapper">
+                <input type="number" name="roll_no" placeholder="🔢 Your Roll Number" required>
+            </div>
+            <div class="input-wrapper">
+                <input type="text" name="class" placeholder="📚 Your Class" required>
+            </div>
+            <div class="input-wrapper">
+                <input type="text" name="class_code" placeholder="🎯 Class Code" required>
+            </div>
+            <button type="submit">Let's Go! 🚀</button>
+        </form>
     </div>
+
+    <script>
+        // Add fun interactions
+        document.getElementById('joinClassForm').addEventListener('submit', function(e) {
+            const button = this.querySelector('button');
+            const rainbow = document.querySelector('.loading-rainbow');
+            rainbow.style.display = 'block';
+            button.textContent = '🎉 Joining...';
+            
+            // Simulate loading (remove in production)
+            setTimeout(() => {
+                rainbow.style.display = 'none';
+                button.textContent = "Let's Go! 🚀";
+            }, 2000);
+        });
+
+        // Add playful input animations
+        const inputs = document.querySelectorAll('input');
+        inputs.forEach(input => {
+            input.addEventListener('focus', function() {
+                this.style.transform = 'scale(1.02)';
+                this.parentElement.querySelector('.star')?.classList.add('active');
+            });
+
+            input.addEventListener('blur', function() {
+                this.style.transform = 'scale(1)';
+                this.parentElement.querySelector('.star')?.classList.remove('active');
+            });
+        });
+    </script>
+<!-- Code injected by live-server -->
+<script>
+	// <![CDATA[  <-- For SVG support
+	if ('WebSocket' in window) {
+		(function () {
+			function refreshCSS() {
+				var sheets = [].slice.call(document.getElementsByTagName("link"));
+				var head = document.getElementsByTagName("head")[0];
+				for (var i = 0; i < sheets.length; ++i) {
+					var elem = sheets[i];
+					var parent = elem.parentElement || head;
+					parent.removeChild(elem);
+					var rel = elem.rel;
+					if (elem.href && typeof rel != "string" || rel.length == 0 || rel.toLowerCase() == "stylesheet") {
+						var url = elem.href.replace(/(&|\?)_cacheOverride=\d+/, '');
+						elem.href = url + (url.indexOf('?') >= 0 ? '&' : '?') + '_cacheOverride=' + (new Date().valueOf());
+					}
+					parent.appendChild(elem);
+				}
+			}
+			var protocol = window.location.protocol === 'http:' ? 'ws://' : 'wss://';
+			var address = protocol + window.location.host + window.location.pathname + '/ws';
+			var socket = new WebSocket(address);
+			socket.onmessage = function (msg) {
+				if (msg.data == 'reload') window.location.reload();
+				else if (msg.data == 'refreshcss') refreshCSS();
+			};
+			if (sessionStorage && !sessionStorage.getItem('IsThisFirstTime_Log_From_LiveServer')) {
+				console.log('Live reload enabled.');
+				sessionStorage.setItem('IsThisFirstTime_Log_From_LiveServer', true);
+			}
+		})();
+	}
+	else {
+		console.error('Upgrade your browser. This Browser is NOT supported WebSocket for Live-Reloading.');
+	}
+	// ]]>
+</script>
 </body>
 </html>

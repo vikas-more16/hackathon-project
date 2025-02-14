@@ -3,31 +3,35 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Login</title>
+    <title>Kids Learning Platform</title>
     <link rel="stylesheet" href="login.css">
 </head>
 <body>
     <div class="left">
+        <div class="floating-element element1">🌟</div>
+        <div class="floating-element element2">🎨</div>
+        <div class="floating-element element3">📚</div>
+        <div class="floating-element element4">🎮</div>
         <div class="container">
-            <form action="login.php" method="post">
-                <div id="loginForm">
-                    <h2>Login to your account</h2>
-                    <select id="userType" name="user_type">
-                        <option selected disabled>select your account type...</option>
-                        <option value="student">Student</option>
-                        <option value="organization">Organization</option>
-                    </select>
-                    <input type="text" placeholder="Username" required name="user_name">
-                    <input type="password" placeholder="Password" required name="password">
-                    <button type="submit">Login</button>
-                    <p>Don't have an account? <a href="register.html">Register</a></p>
-                </div>
-            </form>
+           <form action="login.php" method="post">
+            <div id="loginForm">
+                <h2>Login to your account!✨</h2>
+                <select name="user_type" id="userType">
+                    <option selected disabled>Login to your account</option>
+                    <option value="student">Student</option>
+                    <option value="organization">Organization</option>
+                </select>
+                <input name="user_name" type="text" placeholder="Username" required>
+                <input name="password" type="password" placeholder="Password" required>
+                <button type="submit">Start Your Adventure</button>
+                <p>New to our magical world? <a href="register.html">Join the Fun!</a></p>
+            </div>
+           </form>
         </div>
     </div>
     <div class="right">
-        <h1>Educational Platform</h1>
-        <p>A comprehensive platform for organizations and students to manage virtual classrooms, share educational content, and track progress.</p>
+        <h1>Fun Learning Adventure! 🎈</h1>
+        <p>Join us on an amazing journey where learning feels like playing! 🌈</p>
     </div>
     <script src="login.js"></script>
 </body>

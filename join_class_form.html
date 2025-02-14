@@ -3,54 +3,157 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Join Class</title>
+    <title>Student Registration Form</title>
     <style>
+        /* Global styles */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Arial', sans-serif;
+        }
+
         body {
-            font-family: Arial, sans-serif;
-            text-align: center;
-            background-color: #f7f9fc;
+            background-color: #f8f9fa;
+            color: #333;
         }
+
         .container {
-            width: 300px;
-            margin: auto;
-            padding: 20px;
-            background: white;
+            width: 80%;
+            margin: 0 auto;
+            text-align: center;
+        }
+
+        header {
+            background-color: #ff9f00;
+            color: #fff;
+            padding: 20px 0;
             border-radius: 10px;
-            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
         }
+
+        h1 {
+            font-size: 2.5rem;
+        }
+
+        .form-container {
+            background-color: #fff;
+            padding: 40px;
+            border-radius: 10px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+            margin-top: 30px;
+        }
+
+        h2 {
+            font-size: 1.8rem;
+            margin-bottom: 20px;
+        }
+
+        .input-group {
+            margin: 15px 0;
+            text-align: left;
+        }
+
         input {
-            width: 90%;
+            width: 100%;
             padding: 10px;
-            margin: 10px 0;
+            margin-top: 5px;
+            border: 1px solid #ddd;
             border-radius: 5px;
-            border: 1px solid #ccc;
+            font-size: 1rem;
         }
+
+        input:focus {
+            border-color: #ff9f00;
+            outline: none;
+            transition: all 0.3s ease;
+        }
+
         button {
-            background-color: #4CAF50;
-            color: white;
-            padding: 10px 15px;
+            padding: 12px 20px;
+            background-color: #ff9f00;
             border: none;
+            color: #fff;
+            font-size: 1.2rem;
             border-radius: 5px;
             cursor: pointer;
-            font-size: 16px;
+            transition: background-color 0.3s;
         }
+
         button:hover {
-            background-color: #45a049;
+            background-color: #e68900;
+        }
+
+        .footer {
+            margin-top: 50px;
+            font-size: 0.9rem;
+        }
+
+        .character-images {
+            margin-top: 30px;
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+            animation: moveImages 2s ease-in-out infinite alternate;
+        }
+
+        .character {
+            width: 120px;
+            height: auto;
+            transition: transform 0.3s;
+        }
+
+        .character:hover {
+            transform: scale(1.1);
+        }
+
+        @keyframes moveImages {
+            0% {
+                transform: translateY(0);
+            }
+            100% {
+                transform: translateY(-10px);
+            }
         }
     </style>
 </head>
 <body>
 
     <div class="container">
-        <h2>Join Class</h2>
-        <form action="join_class_form.php" method="POST">
-            <input type="text" name="student_name" placeholder="Enter Your Name" required><br>
-            <input type="number" name="roll_no" placeholder="Enter Roll No." required><br>
-            <input type="text" name="class" placeholder="Enter Your Class" required><br>
-            <input type="text" name="class_code" placeholder="Enter Class Code" required><br>
-            <button type="submit">Join Class</button>
-        </form>
-    </div>
+        <header>
+            <h1>Welcome to the Fun Student Registration</h1>
+        </header>
+        
+        <div class="form-container">
+            <h2>Register Your Details</h2>
+            <form id="studentForm" action="virtualClass.html">
+                <div class="input-group">
+                    <label for="name">Student Name:</label>
+                    <input type="text" id="name" name="name" required>
+                </div>
+                <div class="input-group">
+                    <label for="rollNumber">Roll Number:</label>
+                    <input type="number" id="rollNumber" name="rollNumber" required>
+                </div>
+                <div class="input-group">
+                    <label for="class">Class:</label>
+                    <input type="text" id="class" name="class" required>
+                </div>
+                <div class="input-group">
+                    <label for="classCode">Class Code:</label>
+                    <input type="text" id="classCode" name="classCode" required>
+                </div>
+                <button type="submit" id="submitBtn">Submit</button>
+            </form>
+        </div>
 
+        <div class="footer">
+            <p>Powered by Kids Fun! - Designed with love & fun!</p>
+        </div>
+
+        <div class="character-images">
+            <img src="shinchan.png" alt="Shinchan" class="character">
+            <img src="doraemon.png" alt="Doraemon" class="character">
+        </div>
+    </div>
 </body>
 </html>

@@ -69,10 +69,16 @@ session_start(); // Start session to track login status
             <h3>Challenges</h3>
             <ul class="challenges-list">
                 <li class="challenge-item">
+
+                <div class="quest-cards">
                     <h4>Challenge 1: Basic Addition</h4>
-                    <p>Solve 10 addition problems.</p>
+                    <img src="https://via.placeholder.com/300" alt="Card Image">
+                    <p>Solve 10 addition problems.</p>                    <div class="container"> 
+
                     <a href="maths-challenge-1.html"><button class="start-challenge">Start Challenge</button></a>
-                </li>
+                </div>
+             </li>
+                
                 <li class="challenge-item">
                     <h4>Challenge 2: Subtraction Mastery</h4>
                     <p>Solve 10 subtraction problems.</p>
