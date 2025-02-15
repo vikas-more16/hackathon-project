@@ -184,6 +184,18 @@ header nav ul li a:hover {
     padding-left: 25px;
 }
 
+.rewards-list .img {
+    width: 80px;  /* Adjust the width to a smaller size */
+    height: auto;  /* Maintain aspect ratio */
+    vertical-align: middle;  /* Align images with text */
+    margin-left: 5px;  /* Adjust spacing */
+}
+
+.badge-container img {
+    max-width: 40px; /* Adjust this value as needed */
+    height: auto;
+}
+
 .rewards-list li::before {
     content: '🌟';
     position: absolute;

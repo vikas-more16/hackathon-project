@@ -27,6 +27,16 @@ session_start(); // Start session to track login status
                 <li><a href="index.php">Home</a></li>
                 <li class="nav-item dropdown">
                     <a class="nav-link dropdown-toggle" href="quests.php" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                      games
+                    </a>
+                    <ul class="dropdown-menu">
+                      <li><a class="dropdown-item" href="math-marvels-quest.php">Math Marvels</a></li>
+                      <li><a class="dropdown-item" href="grammar-galaxy-quest.php">Grammar Galaxy</a></li>
+                      <li><a class="dropdown-item" href="science-island-quest.php">Science Island</a></li>
+                    </ul>
+                </li>
+                <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle" href="quests.php" role="button" data-bs-toggle="dropdown" aria-expanded="false">
                       Quests
                     </a>
                     <ul class="dropdown-menu">
@@ -38,7 +48,7 @@ session_start(); // Start session to track login status
                   </li>
                 <?php if (isset($_SESSION["user_id"])): ?>
                     <!-- Show Profile & Dashboard when user is logged in -->
-                    <li><a href="dashboard.php">Dashboard</a></li>
+                    <li><a href="dashboard.php">Leaderboard</a></li>
                     <li><a href="profile.php">Profile</a></li>
                     <li class="button"><a href="logout.php">Logout</a></li>
                 <?php else: ?>
@@ -53,53 +63,49 @@ session_start(); // Start session to track login status
     <section id="math-marvels-quest">
         <div class="quest-header">
             <h1>Math Marvels Quest</h1>
-            <p>Join this adventure and master math! Complete the challenges to earn rewards and become a Math Marvel!</p>
         </div>
 
         <div class="quest-info">
-            <h2>Quest Overview</h2>
-            <p>This quest will challenge your math skills in addition, subtraction, multiplication, and division. Solve the problems and advance through each level!</p>
-
             <h3>Progress</h3>
             <div class="progress-bar-container">
                 <div class="progress-bar" style="width: 40%"></div>
             </div>
             <p>40% Completed</p>
 
-            <h3>Challenges</h3>
+            <h3>levels</h3>
             <ul class="challenges-list">
                 <li class="challenge-item">
 
                 <div class="quest-cards">
-                    <h4>Challenge 1: Basic Addition</h4>
+                    <h4>Challenge 1: Addition problem</h4>
                     <img src="https://via.placeholder.com/300" alt="Card Image">
-                    <p>Solve 10 addition problems.</p>                    <div class="container"> 
+                                      <div class="container"> 
 
-                    <a href="maths-challenge-1.html"><button class="start-challenge">Start Challenge</button></a>
+                    <a href="maths_challenge-1.php"><button class="start-challenge">Start Challenge</button></a>
                 </div>
              </li>
                 
                 <li class="challenge-item">
                     <h4>Challenge 2: Subtraction Mastery</h4>
-                    <p>Solve 10 subtraction problems.</p>
                     <button class="start-challenge">Start Challenge</button>
                 </li>
                 <li class="challenge-item">
                     <h4>Challenge 3: Multiplication Wizard</h4>
-                    <p>Solve 10 multiplication problems.</p>
                     <button class="start-challenge">Start Challenge</button>
                 </li>
                 <li class="challenge-item">
                     <h4>Challenge 4: Division Champion</h4>
-                    <p>Solve 10 division problems.</p>
                     <button class="start-challenge">Start Challenge</button>
                 </li>
             </ul>
 
             <h3>Rewards</h3>
             <ul class="rewards-list">
-                <li>Earn 500 Points for Completing All Challenges</li>
-                <li>Unlock the "Math Marvel" Badge</li>
+                <li>Earn 100 Points for Completing one Challenge</li>
+                <li>Unlock the "Addition problem" Badge <img class="img" src="b1.png" alt="badge"></li>
+                <li>Unlock the "Subtraction Mastery" Badge <img class="img" src="b2.png" alt="badge"></li>
+                <li>Unlock the "Multiplication Wizard" Badge <img class="img" src="b3.png" alt="badge"></li>
+                <li>Unlock the "Division Champion" Badge <img class="img" src="b4.png" alt="badge"></li>
             </ul>
         </div>
     </section>

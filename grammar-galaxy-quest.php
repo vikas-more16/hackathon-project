@@ -25,6 +25,16 @@ session_start(); // Start session to track login status
         <nav>
             <ul>
                 <li><a href="index.php">Home</a></li>
+                
+                <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle" href="quests.php" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                      games
+                    </a>
+                    <ul class="dropdown-menu">
+                      <li><a class="dropdown-item" href="math-marvels-quest.php">Math Marvels</a></li>
+                      <li><a class="dropdown-item" href="grammar-galaxy-quest.php">Grammar Galaxy</a></li>
+                      <li><a class="dropdown-item" href="science-island-quest.php">Science Island</a></li>
+                    </ul>
                 <li class="nav-item dropdown">
                     <a class="nav-link dropdown-toggle" href="quests.php" role="button" data-bs-toggle="dropdown" aria-expanded="false">
                       Quests
@@ -38,7 +48,7 @@ session_start(); // Start session to track login status
                   </li>
                 <?php if (isset($_SESSION["user_id"])): ?>
                     <!-- Show Profile & Dashboard when user is logged in -->
-                    <li><a href="dashboard.php">Dashboard</a></li>
+                    <li><a href="dashboard.php">Leaderboard</a></li>
                     <li><a href="profile.php">Profile</a></li>
                     <li class="button"><a href="logout.php">Logout</a></li>
                 <?php else: ?>

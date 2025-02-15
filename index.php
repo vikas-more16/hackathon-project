@@ -36,12 +36,21 @@ session_start(); // Start session
                       <li><a class="dropdown-item" href="math-marvels-quest.php">Math Marvels</a></li>
                       <li><a class="dropdown-item" href="grammar-galaxy-quest.php">Grammar Galaxy</a></li>
                       <li><a class="dropdown-item" href="science-island-quest.php">Science Island</a></li>
-                      <li><a class="dropdown-item" href="interactive-games.php">Interactive Games</a></li>
+                    </ul>
+                  </li>
+                <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle" href="quests.php" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                      Quests
+                    </a>
+                    <ul class="dropdown-menu">
+                      <li><a class="dropdown-item" href="math-marvels-quest.php">Fun with math</a></li>
+                      <li><a class="dropdown-item" href="grammar-galaxy-quest.php">Language</a></li>
+                      <li><a class="dropdown-item" href="interactive-games.php">logical quest</a></li>
                     </ul>
                   </li>
                 <?php if (isset($_SESSION["user_id"])): ?>
                     <!-- Show Profile & Dashboard when user is logged in -->
-                    <li><a href="dashboard.php">Dashboard</a></li>
+                    <li><a href="dashboard.php">Leaderboard</a></li>
                     <li><a href="profile.php">Profile</a></li>
                     <li class="button"><a href="logout.php">Logout</a></li>
                 <?php else: ?>
@@ -85,7 +94,7 @@ session_start(); // Start session
     </section>
 
     <section id="featured-quests">
-        <div class="quest-cards">
+        <div id="Math Marvels" class="quest-cards">
             <a href="math-marvels-quest.php">
                 <div class="quest-card">
                     <img src="math_game_img.png" alt="Quest Image">
@@ -95,7 +104,7 @@ session_start(); // Start session
             <a href="grammar-galaxy-quest.php">
                 <div class="quest-card">
                     <img src="language_game_img.png" alt="Quest Image">
-                    <h3>Grammar Galaxy</h3>
+                    <h3>Language</h3>
                 </div>
             </a>
            <a href="science-island-quest.php">
@@ -109,19 +118,19 @@ session_start(); // Start session
             <a href="math-marvels-quest.php">
                 <div class="quest-card">
                     <img src="math_game_img.png" alt="Quest Image">
-                    <h3>Math Marvels</h3>
+                    <h3>Fun with math</h3>
                 </div>
             </a>
             <a href="grammar-galaxy-quest.php">
                 <div class="quest-card">
                     <img src="language_game_img.png" alt="Quest Image">
-                    <h3>Grammar Galaxy</h3>
+                    <h3>Language quest</h3>
                 </div>
             </a>
            <a href="science-island-quest.php">
             <div class="quest-card">
                 <img src="scienceisland_game_img.png" alt="Quest Image">
-                <h3>Science Island</h3>
+                <h3>logical quest</h3>
             </div>
            </a>
         </div>

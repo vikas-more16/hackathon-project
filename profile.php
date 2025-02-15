@@ -1,8 +1,27 @@
 <?php
-session_start(); // Start session to track login status
+require "connection.php"; 
+session_start();
+
+if (!isset($_SESSION["user_id"])) {
+    // Redirect to login page if not logged in
+    header("Location: login.php");
+    exit();
+}
+
+// Fetch user details from the database
+$user_id = $_SESSION["user_id"];
+$query = $conn->prepare("SELECT user_name, full_name, email,points ,level  FROM users WHERE id = ?");
+$query->bind_param("i", $user_id);
+$query->execute();
+$result = $query->get_result();
+$user = $result->fetch_assoc();
+
+$query->close();
+$conn->close();
 ?>
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -11,9 +30,12 @@ session_start(); // Start session to track login status
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Chewy&family=Roboto:ital,wght@0,100..900;1,100..900&family=Ubuntu:ital,wght@0,300;0,400;0,500;0,700;1,300;1,400;1,500;1,700&display=swap" rel="stylesheet">
+    <link
+        href="https://fonts.googleapis.com/css2?family=Chewy&family=Roboto:ital,wght@0,100..900;1,100..900&family=Ubuntu:ital,wght@0,300;0,400;0,500;0,700;1,300;1,400;1,500;1,700&display=swap"
+        rel="stylesheet">
     <link rel="stylesheet" href="profile.css">
 </head>
+
 <body>
     <header>
         <div class="logo">
@@ -26,19 +48,30 @@ session_start(); // Start session to track login status
             <ul>
                 <li><a href="index.php">Home</a></li>
                 <li class="nav-item dropdown">
-                    <a class="nav-link dropdown-toggle" href="quests.php" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-                      Quests
+                    <a class="nav-link dropdown-toggle" href="quests.php" role="button" data-bs-toggle="dropdown"
+                        aria-expanded="false">
+                        games
                     </a>
                     <ul class="dropdown-menu">
-                      <li><a class="dropdown-item" href="math-marvels-quest.php">Math Marvels</a></li>
-                      <li><a class="dropdown-item" href="grammar-galaxy-quest.php">Grammar Galaxy</a></li>
-                      <li><a class="dropdown-item" href="science-island-quest.php">Science Island</a></li>
-                      <li><a class="dropdown-item" href="interactive-games.php">Interactive Games</a></li>
+                        <li><a class="dropdown-item" href="math-marvels-quest.php">Math Marvels</a></li>
+                        <li><a class="dropdown-item" href="grammar-galaxy-quest.php">Grammar Galaxy</a></li>
+                        <li><a class="dropdown-item" href="science-island-quest.php">Science Island</a></li>
                     </ul>
-                  </li>
+                <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle" href="quests.php" role="button" data-bs-toggle="dropdown"
+                        aria-expanded="false">
+                        Quests
+                    </a>
+                    <ul class="dropdown-menu">
+                        <li><a class="dropdown-item" href="math-marvels-quest.php">Math Marvels</a></li>
+                        <li><a class="dropdown-item" href="grammar-galaxy-quest.php">Grammar Galaxy</a></li>
+                        <li><a class="dropdown-item" href="science-island-quest.php">Science Island</a></li>
+                        <li><a class="dropdown-item" href="interactive-games.php">Interactive Games</a></li>
+                    </ul>
+                </li>
                 <?php if (isset($_SESSION["user_id"])): ?>
                     <!-- Show Profile & Dashboard when user is logged in -->
-                    <li><a href="dashboard.php">Dashboard</a></li>
+                    <li><a href="dashboard.php">Leaderboard</a></li>
                     <li><a href="profile.php">Profile</a></li>
                     <li class="button"><a href="logout.php">Logout</a></li>
                 <?php else: ?>
@@ -51,45 +84,35 @@ session_start(); // Start session to track login status
     </header>
 
     <section id="profile-page">
-        <div class="profile-header">
-            <h1>Welcome, Emma!</h1>
-            <p>Your learning adventure continues here.</p>
-        </div>
+        <div class="profile-container">
+            <div class="profile-header">
+                <h1>Welcome, <?php echo htmlspecialchars($user["full_name"]); ?>
+                </h1>
+                <p>Your learning adventure continues here</p>
+            </div>
 
-        <div class="profile-info">
-            <div class="profile-avatar">
-                <img src="a5.png" alt="User Avatar">
-            </div>
-            <div class="profile-details">
-                <h2>Emma</h2>
-                <p><strong>Username:</strong> Emma123</p>
-                <p><strong>Bio:</strong> Passionate about learning new things! Enjoys math puzzles and exploring the world of science.</p>
-                <p><strong>Total Points:</strong> 1200</p>
-                <p><strong>Current Rank:</strong> 3rd</p>
-            </div>
-        </div>
-
-        <div class="profile-stats">
-            <div class="stats-card">
-                <h3>Quest Progress</h3>
-                <p><strong>Completed Quests:</strong> 10</p>
-                <p><strong>Active Quest:</strong> Math Marvels (In Progress)</p>
-            </div>
-            <div class="stats-card">
-                <h3>Achievements</h3>
-                <ul>
-                    <li>Math Magician Badge</li>
-                    <li>Grammar Guru Badge</li>
-                    <li>Science Explorer Badge</li>
-                </ul>
+            <div class="profile-info">
+                <div class="profile-avatar">
+                    <img src="a5.png" alt="User Avatar">
+                </div>
+                <div class="profile-details">
+                    <h2><?php echo htmlspecialchars($user["full_name"]); ?></h2>
+                    <p>Username: <?php echo htmlspecialchars($user["user_name"]); ?></p>
+                    <p>Email: <?php echo htmlspecialchars($user["email"]); ?></p>
+                    <p>Level: <?php echo htmlspecialchars($user["level"]); ?></p>
+                    <p>Total Points: <?php echo htmlspecialchars($user["points"]); ?></p>
+                    <div class="badge-container">
+                        <span class="badge">🏆 Achivements</span>
+                    </div>
+                </div>
             </div>
         </div>
 
+       
         <div class="edit-profile">
             <a href="edit-profile.html" class="cta-button">Edit Profile</a>
         </div>
     </section>
-
     <footer>
         <div class="footer-content">
             <p>&copy; 2025 Learning Quest. All rights reserved.</p>
@@ -97,4 +120,5 @@ session_start(); // Start session to track login status
     </footer>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
 </body>
+
 </html>

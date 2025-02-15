@@ -7,8 +7,7 @@
   <style>
     body {
       font-family: Arial, sans-serif;
-      background: linear-gradient(45deg, #ff6f61, #6a1b9a, #3f51b5, #009688, #8bc34a);
-      color: white;
+      background-color: #f0f0f0;
       margin: 0;
       padding: 0;
       display: flex;
@@ -17,17 +16,17 @@
       height: 100vh;
     }
     .chat-container {
-      width: 80%;
+      width: 100%;
       max-width: 900px;
       padding: 20px;
-      background-color: rgba(0, 0, 0, 0.7);
+      background-color: #ffffff;
       border-radius: 10px;
-      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
     }
     h1 {
       text-align: center;
-      color: #fff;
-      font-size: 2.5em;
+      color: #075e54;
+      font-size: 2em;
       margin-bottom: 20px;
     }
     .tabs {
@@ -37,16 +36,16 @@
     }
     .tab-button {
       background: transparent;
-      border: 2px solid white;
-      color: white;
+      border: 2px solid #075e54;
+      color: #075e54;
       padding: 12px 24px;
       border-radius: 5px;
       cursor: pointer;
       transition: background 0.3s ease, color 0.3s ease;
     }
     .tab-button:hover {
-      background: white;
-      color: black;
+      background: #075e54;
+      color: white;
     }
     .chat-box {
       display: none;
@@ -55,28 +54,59 @@
     .chat-box.active {
       display: block;
     }
+    .search-bar {
+      display: flex;
+      align-items: center;
+      margin-bottom: 20px;
+      background-color: #e5e5e5;
+      border-radius: 5px;
+      padding: 8px;
+    }
+    .search-bar input {
+      border: none;
+      outline: none;
+      padding: 8px;
+      font-size: 1em;
+      flex: 1;
+      border-radius: 5px;
+    }
+    .search-bar button {
+      background-color: #075e54;
+      border: none;
+      color: white;
+      padding: 8px;
+      border-radius: 5px;
+      cursor: pointer;
+    }
+    .search-bar button:hover {
+      background-color: #128c7e;
+    }
     .message-area {
-      background: #333;
+      background: #ece5dd;
       padding: 15px;
       height: 300px;
       overflow-y: scroll;
       border-radius: 5px;
+      margin-bottom: 10px;
     }
     .message {
       padding: 10px;
       margin: 10px 0;
-      background-color: #444;
+      background-color: #ffffff;
       border-radius: 5px;
+      width: fit-content;
     }
     .teacher {
-      background-color: #ffcc00;
+      background-color: #dcf8c6;
+      margin-left: auto;
     }
     .parent {
-      background-color: #4caf50;
+      background-color: #ffffff;
+      margin-right: auto;
     }
     .sender-info {
       font-weight: bold;
-      color: #f1f1f1;
+      color: #075e54;
     }
     .input-area {
       display: flex;
@@ -89,41 +119,43 @@
       border-radius: 5px;
       margin-right: 10px;
       font-size: 1em;
+      background-color: #f1f1f1;
     }
     .input-area button {
       padding: 12px;
       border: none;
-      background-color: #00bcd4;
+      background-color: #075e54;
       color: white;
       border-radius: 5px;
       cursor: pointer;
       transition: background 0.3s;
     }
     .input-area button:hover {
-      background-color: #0097a7;
+      background-color: #128c7e;
     }
     .questions {
       margin-top: 20px;
-      background-color: #555;
+      background-color: #f0f0f0;
       padding: 20px;
       border-radius: 8px;
     }
     .question {
       padding: 10px;
       margin: 10px 0;
-      background-color: #444;
+      background-color: #e1e1e1;
       border-radius: 5px;
       cursor: pointer;
       transition: background 0.3s ease;
     }
     .question:hover {
-      background-color: #ff9800;
+      background-color: #128c7e;
+      color: white;
     }
     .answer {
       display: none;
       padding-top: 10px;
       font-size: 0.9em;
-      color: #f1f1f1;
+      color: #333;
     }
     .question.active .answer {
       display: block;
@@ -142,17 +174,32 @@
     </div>
     
     <div id="group" class="chat-box active">
-      <div class="person-selection">
-        <label for="select-person-group">Select a person to chat:</label>
-        <select id="select-person-group" onchange="changeGroupChatPerson()">
-          <option value="teacher1">Teacher 1</option>
-          <option value="parent1">Parent 1</option>
-          <option value="teacher2">Teacher 2</option>
-          <option value="parent2">Parent 2</option>
-        </select>
+      <div class="search-bar">
+        <input type="text" id="search-group" placeholder="Search for a person..." onkeyup="searchGroupMessages()">
+        <button>Search</button>
       </div>
       <div class="message-area" id="group-messages">
-        <!-- Group messages will appear here -->
+        <!-- Predefined Group Messages -->
+        <div class="message teacher">
+          <div class="sender-info">Teacher 1</div>
+          <p>Hello Sir and Mam!</p>
+        </div>
+        <div class="message parent">
+          <div class="sender-info">Parent 1</div>
+          <p>Hello Mam and Teacher!</p>
+        </div>
+        <div class="message teacher">
+          <div class="sender-info">Teacher 2</div>
+          <p>Good morning everyone, how are the students doing?</p>
+        </div>
+        <div class="message parent">
+          <div class="sender-info">Parent 2</div>
+          <p>Good morning! My child is doing well, thanks for asking!</p>
+        </div>
+        <div class="message parent">
+          <div class="sender-info">Parent 3</div>
+          <p>Hello, Teacher! Is there any homework for the kids?</p>
+        </div>
       </div>
       <div class="input-area">
         <input type="text" id="group-input" placeholder="Type a message...">
@@ -216,9 +263,17 @@
       document.getElementById(chatType).classList.add('active');
     }
 
-    function changeGroupChatPerson() {
-      currentPersonGroup = document.getElementById('select-person-group').value;
-      document.getElementById('group-messages').innerHTML = '';  // Clear previous messages
+    function searchGroupMessages() {
+      const searchTerm = document.getElementById('search-group').value.toLowerCase();
+      const messages = document.querySelectorAll('#group-messages .message');
+      messages.forEach(message => {
+        const sender = message.querySelector('.sender-info').textContent.toLowerCase();
+        if (sender.includes(searchTerm)) {
+          message.style.display = 'block';
+        } else {
+          message.style.display = 'none';
+        }
+      });
     }
 
     function changeChatPerson() {
